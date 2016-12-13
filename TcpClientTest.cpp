@@ -5,7 +5,6 @@
 #include <cstring>
 
 
-
 int main(int argc , char *argv[])
 {
 	TcpClient* client = new TcpClient(argv[1], atoi(argv[2]));
@@ -42,5 +41,5 @@ int main(int argc , char *argv[])
 
 	delete client;
 
-    return 0;
+	return 0;
 }

@@ -32,12 +32,11 @@ bool TcpClient::Connect()
 	if (socket_desc_ != -1)
 	{
 		struct sockaddr_in server;
+		server.sin_addr.s_addr = inet_addr(host_.c_str());
+		server.sin_family = AF_INET;
+		server.sin_port = htons(port_);
 
-	    server.sin_addr.s_addr = inet_addr(host_.c_str());
-	    server.sin_family = AF_INET;
-	    server.sin_port = htons(port_);
-
-	    is_connected_ = connect(socket_desc_, (struct sockaddr *)&server , sizeof(server)) == 0;
+		is_connected_ = connect(socket_desc_, (struct sockaddr *)&server , sizeof(server)) == 0;
 	}
 	return is_connected_;
 }
@@ -63,9 +62,7 @@ bool TcpClient::IsConnected() const
 
 int TcpClient::Send(void* buffer, size_t size)
 {
-
 	return send(socket_desc_, buffer, size, 0);
-
 }
 
 int TcpClient::Recv(void* buffer, size_t size)

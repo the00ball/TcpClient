@@ -1,2 +1,2 @@
 # TcpClient
-Simple C TCP Client  
+Simple C++ TCP Client  
