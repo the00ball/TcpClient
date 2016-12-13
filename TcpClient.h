@@ -29,6 +29,7 @@ public:
 	bool IsConnected() const;
 	int Send(void *buffer, size_t size);
 	int Recv(void *buffer, size_t size);
+	int SendInt(uint32_t value);
 };
 
 #endif /* TCPCLIENT_H_ */

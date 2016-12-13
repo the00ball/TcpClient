@@ -20,7 +20,7 @@ int main(int argc , char *argv[])
 		puts("Connection successfully");
 	}
 
-	if (client->Send(argv[3], strlen(argv[3])) < 0)
+	if (client->SendInt(strlen(argv[3])) < 0 || client->Send(argv[3], strlen(argv[3])) < 0)
 	{
 		puts("Send failed");
 	}

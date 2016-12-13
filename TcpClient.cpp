@@ -69,3 +69,9 @@ int TcpClient::Recv(void* buffer, size_t size)
 {
 	return recv(socket_desc_, buffer, size, 0);
 }
+
+int TcpClient::SendInt(uint32_t value)
+{
+	uint32_t network_byte_order = htonl(value);
+	return Send(&network_byte_order, sizeof(uint32_t));
+}
